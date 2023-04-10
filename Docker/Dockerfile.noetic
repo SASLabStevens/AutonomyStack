@@ -1,1 +1,41 @@
 
+FROM arm64v8/ros:noetic-perception-focal
+#ARG VERSION
+LABEL Maintainer="M. (Ryan) Bahrami <mbahrami@stevens.edu>" \
+      Description="Ubuntu 20.04 + ROS Noetic for use on VOXL Flight Deck ??" 
+ #     Version=$VERSION
+
+# COPY bashrc_extras /
+# RUN source /opt/ros/noetic/setup.bash 
+
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
+    git \
+    vim \
+    python3-pip \
+    python3-catkin-tools \
+    build-essential\
+    python3-osrf-pycommon \
+    bash-completion \
+    libncurses5-dev 
+    # && \
+    # cat /bashrc_extras >> ~/.bashrc && rm /bashrc_extras && \
+# if pty.py is found, catkin tools runs out of ptys...
+    # mv /usr/lib/python3.8/pty.py /usr/lib/python3.8/pty.py.old && \
+# cJSON
+#     git clone -b v0.3.5 https://gitlab.com/voxl-public/core-libs/libmodal_json.git && \
+#     cd libmodal_json && mkdir build && cd build && cmake .. && make && \
+#     make install && ln -fs /usr/lib64/*.so /usr/lib/ && rm -rf /libmodal_json && cd / && \
+# # modal pipe architecture
+#     git clone -b v2.0.7 https://gitlab.com/voxl-public/modal-pipe-architecture/libmodal_pipe.git && \
+#     cd libmodal_pipe && \
+    # # we aren't ANDROID, but this happens to remove unnecessary dependency on mavlink
+    # sed -i '36i #define __ANDROID__' library/src/interfaces.c && \
+    # mkdir build && cd build && cmake .. && make && \
+    # make install && ln -fs /usr/lib64/*.so /usr/lib/ && rm -rf /libmodal_pipe && cd /
+
+# ADD ros_entrypoint.sh /ros_entrypoint.sh
+# setup ros environment
+RUN source "/opt/ros/$ROS_DISTRO/setup.bash"
+
+# ENTRYPOINT ["/bin/bash"]
+# ENTRYPOINT [ "/ros_entrypoint.sh" ]
