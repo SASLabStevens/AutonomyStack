@@ -1,0 +1,21 @@
+name: ci for ros-neotic
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Build Docker image
+        run: docker build . --file neoros --tag local
+      - 
+        name: Run test commands
+        run: echo "Hi there!"
+        
