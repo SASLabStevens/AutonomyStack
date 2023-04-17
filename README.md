@@ -1,6 +1,6 @@
 # AutonomyStack
 
-[![ci for ros-neotic](https://github.com/r-bahrami/AutonomyStack/actions/workflows/main.yml/badge.svg)](https://github.com/r-bahrami/AutonomyStack/actions/workflows/main.yml)
+[![ci for ros-neotic](https://github.com/r-bahrami/AutonomyStack/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/r-bahrami/AutonomyStack/actions/workflows/main.yml)
 
 # on voxl
 
