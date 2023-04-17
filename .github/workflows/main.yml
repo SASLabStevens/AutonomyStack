@@ -9,13 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-      -
-        name: Build Docker image
-        run: docker build . --file Docker/Dockerfile.noetic --platform=linux/amd64 --tag rosneo 
-      - 
-        name: Run test commands
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: install buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+      - name: Build Docker image
+        run: docker buildx build . --file Docker/Dockerfile.noetic --platform=linux/amd64 --tag rosneo:v0 
+      - name: Run test commands
         run: echo "Hi there!"
         
