@@ -12,6 +12,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
     vim \
     python3-pip \
     python3-catkin-tools \
+    python3-vcstool\
     build-essential\
     python3-osrf-pycommon \
     bash-completion \
@@ -34,6 +35,13 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
 
 
 # ROS dependencies
+
+
+RUN mkdir -p ~/ros_ws/src && cd ~/ros_ws
+# RUN pwd
+COPY ./dependencies.yaml /root/ros_ws/src
+# RUN echo "pwd"
+RUN vcs-import /root/ros_ws/src < /root/ros_ws/src/dependencies.yaml
 
 # ADD ros_entrypoint.sh /ros_entrypoint.sh
 # setup ros environment
