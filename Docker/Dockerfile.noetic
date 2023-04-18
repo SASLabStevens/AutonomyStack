@@ -39,7 +39,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
 
 RUN mkdir -p ~/ros_ws/src && cd ~/ros_ws
 # RUN pwd
-COPY ./dependencies.yaml /root/ros_ws/src
+COPY dependencies.yaml /root/ros_ws/src
 # RUN echo "pwd"
 RUN vcs-import /root/ros_ws/src < /root/ros_ws/src/dependencies.yaml
 
