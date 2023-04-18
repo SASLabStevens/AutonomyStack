@@ -1,0 +1,15 @@
+repositories:
+  vicon_bridge:
+    type: git
+    url: git@github.com:r-bahrami/vicon_bridge.git
+    version: master
+# ros_comm
+# geographic_msgs
+# geometry2
+# libmavconn
+# map_msgs
+# mavlink
+# mavros
+# mavros_msgs
+# serial
+# uuid_msgs
