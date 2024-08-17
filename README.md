@@ -5,7 +5,7 @@
 <p align="center"><img width=80% src="/media/voxl_platform.jpeg"> </p>
 
 ## Documentation and Instructions
-Please refer to our [wiki](https://github.com/SASLabStevens/AutonomyStack/wiki) for detailed instructions on how to use and/or further develope this package.
+Please refer to our [wiki](https://github.com/SASLabStevens/AutonomyStack/wiki) for detailed instructions on how to use and/or further develop this package.
  
  
  
